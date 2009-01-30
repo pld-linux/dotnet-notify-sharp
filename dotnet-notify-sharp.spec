@@ -3,17 +3,20 @@
 Summary:	notify-sharp is a C# client implementation for Desktop Notifications
 Name:		dotnet-notify-sharp
 Version:	0.4.0
-Release:	2
+Release:	3
 License:	X11/MIT
 Source0:	notify-sharp-%{version}.tar.gz
 # Source0-md5:	dc8ea18947afb0801320182c81fc55bd
 Patch0:		%{name}-monodir.patch
 Group:		Development/Libraries
 URL:		http://trac.galago-project.org/wiki/DesktopNotifications
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dotnet-gtk-sharp-devel
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp
 BuildRequires:	dotnet-ndesk-dbus-sharp
 BuildRequires:	gtk+2-devel
+BuildRequires:	libtool
 BuildRequires:	mono-devel
 BuildRequires:	monodoc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -41,6 +44,10 @@ Files required for compilation using notify-sharp.
 %patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable-docs
 
