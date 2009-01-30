@@ -3,7 +3,7 @@
 Summary:	notify-sharp is a C# client implementation for Desktop Notifications
 Name:		dotnet-notify-sharp
 Version:	0.4.0
-Release:	1
+Release:	2
 License:	X11/MIT
 Source0:	notify-sharp-%{version}.tar.gz
 # Source0-md5:	dc8ea18947afb0801320182c81fc55bd
@@ -31,6 +31,7 @@ a short period of time.
 %package devel
 Summary:	Files required for compilation using notify-sharp
 Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Files required for compilation using notify-sharp.
