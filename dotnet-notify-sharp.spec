@@ -6,7 +6,7 @@ Name:		dotnet-notify-sharp
 Version:	0.4.0
 Release:	4.%{subver}.%{rel}
 License:	X11/MIT
-Source0:	http://pkgs.fedoraproject.org/repo/pkgs/notify-sharp/notify-sharp-%{subver}.tar.bz2/add5e8884a3add412843037453a05ea6/notify-sharp-%{subver}.tar.bz2
+Source0:	notify-sharp-%{subver}.tar.bz2
 # Source0-md5:	add5e8884a3add412843037453a05ea6
 Patch0:		%{name}-monodir.patch
 Group:		Development/Libraries
@@ -14,12 +14,13 @@ URL:		http://www.ndesk.org/NotifySharp
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.1
-BuildRequires:	dotnet-ndesk-dbus-glib-sharp
+BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	dotnet-ndesk-dbus-sharp
 BuildRequires:	gtk+2-devel
 BuildRequires:	libtool
+BuildRequires:	mono-csharp
 BuildRequires:	mono-devel
-BuildRequires:	monodoc
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
