@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.mono
 Summary:	C# client implementation for Desktop Notifications
 Summary(pl.UTF-8):	Implementacja C# klienta usługi Desktop Notifications
 Name:		dotnet-notify-sharp
