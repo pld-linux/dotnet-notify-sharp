@@ -2,12 +2,13 @@ Summary:	C# client implementation for Desktop Notifications
 Summary(pl.UTF-8):	Implementacja C# klienta usługi Desktop Notifications
 Name:		dotnet-notify-sharp
 Version:	0.4.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	https://www.meebey.net/projects/notify-sharp/downloads/notify-sharp-%{version}.tar.gz
 # Source0-md5:	46fcb7a6b9b1cd0241366b8234e31e37
 Patch0:		%{name}-monodir.patch
+Patch1:		notify-sharp-dbus.patch
 URL:		https://www.meebey.net/projects/notify-sharp/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -18,11 +19,15 @@ BuildRequires:	mono-csharp >= 1.1.13
 BuildRequires:	mono-devel >= 1.1.13
 BuildRequires:	mono-monodoc >= 1.1.18
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 2.015
 Requires:	dotnet-dbus-sharp >= 1:0.7
 Requires:	dotnet-dbus-sharp-glib >= 0.5
 Requires:	dotnet-gtk-sharp2 >= 2.10.1
 Requires:	mono >= 1.1.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# no native code
+%define		_enable_debug_packages	0
 
 %description
 notify-sharp (Notify#) is a C# client implementation for Desktop
@@ -64,12 +69,14 @@ Pliki programistyczne biblioteki notify-sharp.
 %prep
 %setup -q -n notify-sharp-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	GMCS=/usr/bin/mcs
 
 %{__make}
 

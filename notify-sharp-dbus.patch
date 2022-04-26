@@ -1,0 +1,17 @@
+--- notify-sharp-0.4.1/configure.ac.orig	2022-04-25 21:42:49.771896082 +0200
++++ notify-sharp-0.4.1/configure.ac	2022-04-25 21:43:18.895071642 +0200
+@@ -66,10 +66,10 @@ GTK_SHARP_REQ_VERSION=2.10.1
+ PKG_CHECK_MODULES(GTK_SHARP, gtk-sharp-2.0 >= $GTK_SHARP_REQ_VERSION)
+ AC_SUBST(GTK_SHARP_LIBS)
+ 
+-DBUS_SHARP_REQ_VERSION=0.7
+-DBUS_SHARP_GLIB_REQ_VERSION=0.5
+-PKG_CHECK_MODULES(DBUS_SHARP, dbus-sharp-1.0 >= $DBUS_SHARP_REQ_VERSION \
+-                              dbus-sharp-glib-1.0 >= $DBUS_SHARP_GLIB_REQ_VERSION)
++DBUS_SHARP_REQ_VERSION=0.8
++DBUS_SHARP_GLIB_REQ_VERSION=0.6
++PKG_CHECK_MODULES(DBUS_SHARP, dbus-sharp-2.0 >= $DBUS_SHARP_REQ_VERSION \
++                              dbus-sharp-glib-2.0 >= $DBUS_SHARP_GLIB_REQ_VERSION)
+ AC_SUBST(DBUS_SHARP_LIBS)
+ 
+ required_assemblies="Mono.Posix"
